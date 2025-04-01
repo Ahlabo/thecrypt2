@@ -274,17 +274,321 @@
    {
       "roomId": "General",
       "message": "Hej",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f276-dcb3-768f-a528-268ace323b81",
-      "timestamp": "2025-04-01T17:47:10.899Z"
-   },
-   {
-      "roomId": "General",
-      "message": "Hej",
       "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
       "username": "Sven",
       "messageId": "0195f277-6325-761c-9eb4-f2e8b34a7c21",
       "timestamp": "2025-04-01T17:47:45.317Z"
+   },
+   {
+      "roomId": "General",
+      "message": "fsdfs",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2ae-de23-7474-a73c-584c45f8b122",
+      "timestamp": "2025-04-01T18:48:21.283Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "fuck anton asså, riktig jävel",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2b2-186b-71e4-b934-0d45a546521f",
+      "timestamp": "2025-04-01T18:51:52.811Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-1bfe-729e-94bd-cd24ab835bb0",
+      "timestamp": "2025-04-01T19:37:46.239Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-1c96-7158-8e95-8cf37d5c62af",
+      "timestamp": "2025-04-01T19:37:46.390Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-1d28-706e-b474-783cad915f9a",
+      "timestamp": "2025-04-01T19:37:46.537Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-1dc0-762a-87f2-212a5f01e91c",
+      "timestamp": "2025-04-01T19:37:46.689Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-1e5c-748a-97e8-c41d39075867",
+      "timestamp": "2025-04-01T19:37:46.845Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-1efd-714e-957b-02025903f67f",
+      "timestamp": "2025-04-01T19:37:47.006Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-1f96-77a4-80cf-9c3482f36718",
+      "timestamp": "2025-04-01T19:37:47.159Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-2029-70db-b85b-d6794cf257e8",
+      "timestamp": "2025-04-01T19:37:47.305Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-20c4-773a-864d-1b75ba74b495",
+      "timestamp": "2025-04-01T19:37:47.460Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-2161-70e1-9fe9-fa6e472195f6",
+      "timestamp": "2025-04-01T19:37:47.618Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-2207-7746-91f8-52ff95776dc1",
+      "timestamp": "2025-04-01T19:37:47.784Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-22af-725b-8992-ab281a1b775e",
+      "timestamp": "2025-04-01T19:37:47.952Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-2358-745a-8535-b73221a46713",
+      "timestamp": "2025-04-01T19:37:48.120Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-2404-7663-9092-c7c9829a2c8e",
+      "timestamp": "2025-04-01T19:37:48.292Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-24ac-71f0-91df-34b2c1e0c2a9",
+      "timestamp": "2025-04-01T19:37:48.460Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-2550-757a-9a52-40d0c93d64ec",
+      "timestamp": "2025-04-01T19:37:48.625Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-25f5-75bc-93f5-0e079d9eb919",
+      "timestamp": "2025-04-01T19:37:48.790Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-2696-71e8-bcb0-b9466eeb4b2b",
+      "timestamp": "2025-04-01T19:37:48.950Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-273d-76ca-a085-680927b61ef1",
+      "timestamp": "2025-04-01T19:37:49.117Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-27e0-742d-9577-d98a8d5ecf3c",
+      "timestamp": "2025-04-01T19:37:49.281Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "a",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-288b-773f-8cba-c3b65a078253",
+      "timestamp": "2025-04-01T19:37:49.452Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "asa",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-2996-76d9-afb1-b75f53cb3140",
+      "timestamp": "2025-04-01T19:37:49.719Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "s",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-2a33-7757-b55a-e6915bd7dcc3",
+      "timestamp": "2025-04-01T19:37:49.876Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "sa",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-2b4f-72cf-ba10-ed78c02e6802",
+      "timestamp": "2025-04-01T19:37:50.160Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "ss",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-2c0b-74a8-aa01-c4a702a367c6",
+      "timestamp": "2025-04-01T19:37:50.347Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "s",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-2cd7-763d-bdf8-69ceb94a4694",
+      "timestamp": "2025-04-01T19:37:50.551Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "s",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-2d82-7455-b15a-d8b6c7adb88f",
+      "timestamp": "2025-04-01T19:37:50.723Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "s",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-2e30-73a5-bf6c-005a2803edd3",
+      "timestamp": "2025-04-01T19:37:50.897Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "s",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-2eee-726a-965a-0ec015aa56d9",
+      "timestamp": "2025-04-01T19:37:51.087Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "s",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-301c-70fd-a733-b29003021a35",
+      "timestamp": "2025-04-01T19:37:51.389Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "s",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-30d5-7413-97da-f11108e6f93e",
+      "timestamp": "2025-04-01T19:37:51.574Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "s",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-31a9-764f-bb66-658c021a0300",
+      "timestamp": "2025-04-01T19:37:51.786Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "s",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-324d-73bf-82c7-71c363fae208",
+      "timestamp": "2025-04-01T19:37:51.949Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "s",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-330a-72dd-8a0d-e31ae659e769",
+      "timestamp": "2025-04-01T19:37:52.138Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "s",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-3551-70ea-83de-bbec66ada8bf",
+      "timestamp": "2025-04-01T19:37:52.721Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "s",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-3610-7278-8a61-e5ca68e96501",
+      "timestamp": "2025-04-01T19:37:52.912Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "ss",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "0195f2dc-3705-7512-a3ea-06cbb7044ce8",
+      "timestamp": "2025-04-01T19:37:53.157Z"
    }
 ]
