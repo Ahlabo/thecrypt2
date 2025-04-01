@@ -1,0 +1,649 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Root Variables for Colors */
+:root {
+    /* Background Colors */
+    --background-main: #0d0d0d; /* Main black background */
+    --background-container: #1a1a1a; /* Dark gray for containers */
+    --background-hover: #2a2a2a; /* Slightly lighter gray for hover states */
+    --background-gradient-end: #0f0f0f; /* End color for gradients */
+
+    /* Text Colors */
+    --text-primary: #d4d4d4; /* Off-white text color */
+    --text-secondary: #a8a8a8; /* Slightly dimmer text for less emphasis */
+    --text-hover: #ffffff; /* Pure white text on hover */
+
+    /* Accent Colors */
+    --accent-primary: #1db954; /* Green accent color (e.g., header, buttons) */
+    --accent-hover: #ffffff; /* Slightly brighter green for hover states */
+    --accent-secondary: #3b4a6b; /* Muted blue for borders and highlights */
+    --accent-secondary-hover: #4a5a7c; /* Slightly lighter muted blue for hover states */
+
+    /* Border and Shadow Colors */
+    --border-color: rgba(255, 255, 255, 0.1); /* Subtle white border */
+    --shadow-color: rgba(0, 0, 0, 0.5); /* Shadow color for depth */
+}
+
+/* Body Styling */
+body {
+    background-color: var(--background-main);
+    color: var(--text-primary);
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Chat Container */
+#chat {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack messages vertically */
+    gap: 10px; /* Add spacing between messages */
+    height: 70vh; /* Set height to 70% of the viewport */
+    width: 90%; /* Set width to 90% of the viewport */
+    margin: 20px auto; /* Center the chat box horizontally */
+    background-color: var(--background-container); /* Slightly lighter background */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the chat box */
+    font-size: 1.2rem; /* Slightly larger font size for messages */
+    border: 1px solid var(--border-color); /* Subtle border */
+    box-shadow: 0 4px 10px var(--shadow-color); /* Subtle shadow for depth */
+}
+
+/* Webkit Scrollbar Styling (Chrome, Edge, Safari) */
+*::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--background-hover); /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--accent-primary); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+    border: 2px solid var(--background-hover); /* Add space around the thumb */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent-hover); /* Lighter green on hover */
+}
+
+
+/* Shared styles for both my-message and other-message */
+.my-message,
+.other-message {
+    position: relative; /* Make the message container a positioning context */
+    padding: 15px; /* Padding inside each message */
+    border-radius: 8px; /* Rounded corners */
+    background-color: var(--background-hover); /* Subtle background for messages */
+    color: var(--text-primary); /* Text color */
+    font-size: 1.4rem; /* Font size for messages */
+    word-wrap: break-word; /* Ensure long words break properly */
+    overflow-wrap: break-word; /* Ensure long words wrap properly */
+    display: block; /* Ensure messages take up their own line */
+    margin-bottom: 10px; /* Add spacing between messages */
+}
+
+/* Style for the three-dots, edit, and delete icons */
+.my-message .dots-icon,
+.my-message .edit-icon,
+.my-message .delete-icon {
+    position: absolute; /* Position it relative to the parent */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for perfect vertical centering */
+    font-size: 1.2rem; /* Adjust the icon size */
+    cursor: pointer; /* Change cursor to pointer for interactivity */
+    color: var(--text-secondary); /* Subtle color for the icons */
+    opacity: 0; /* Hide the icons by default */
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+}
+
+/* Positioning for the icons */
+.my-message .dots-icon {
+    right: 10px; /* Position the three-dots icon on the far right */
+}
+
+.my-message .delete-icon {
+    right: 40px; /* Position the delete icon to the left of the three-dots icon */
+}
+
+.my-message .edit-icon {
+    right: 70px; /* Position the edit icon to the left of the delete icon */
+}
+
+/* Show the three-dots icon when hovering over a message */
+.my-message:hover .dots-icon {
+    opacity: 1; /* Make the three-dots icon visible */
+}
+
+/* Show edit and delete icons when the dots icon is clicked */
+.my-message.show-icons .edit-icon,
+.my-message.show-icons .delete-icon {
+    opacity: 1; /* Make the edit and delete icons visible */
+}
+
+/* Hide edit and delete icons when not hovering over the message */
+.my-message:not(:hover) .edit-icon,
+.my-message:not(:hover) .delete-icon {
+    opacity: 0; /* Hide the edit and delete icons */
+}
+
+/* System message styling */
+.system-message {
+    padding: 15px; /* Padding inside the message */
+    border-radius: 8px; /* Rounded corners */
+    background-color: var(--background-hover); /* Subtle background for messages */
+    color: var(--text-primary); /* Text color */
+    font-size: 1.2rem; /* Font size for messages */
+    word-wrap: break-word; /* Ensure long words break properly */
+    overflow-wrap: break-word; /* Ensure long words wrap properly */
+    display: inline-block; /* Ensure messages don't stretch full width */
+    margin-bottom: 10px; /* Add spacing between messages */
+    border-left: 4px solid var(--accent-primary); /* Green border on the left */
+
+}
+
+/* Chat Input Container */
+.chatSubmit {
+    width: 90%; /* Match the width of the chat container */
+    margin: 0 auto; /* Center the input container horizontally */
+    display: flex; /* Align input and button horizontally */
+    gap: 10px; /* Spacing between input and button */
+    margin-top: 10px; /* Spacing above the form */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+/* Chat Form */
+.chatSubmit form {
+    display: flex; /* Align input and button horizontally */
+    width: 100%; /* Make the form take up the full width of the container */
+    gap: 10px; /* Spacing between input and button */
+}
+
+/* Chat Input Field */
+#chatInput {
+    flex: 1; /* Make the input take up all available space */
+    padding: 15px; /* Add padding inside the input */
+    font-size: 1rem; /* Set font size */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: rgb(49, 48, 53); /* Match the chat menu background */
+    color: white; /* Text color */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease; /* Smooth focus effect */
+}
+
+#chatInput:focus {
+    border-color: rgba(255, 255, 255, 0.5); /* Highlight border on focus */
+}
+
+/* Submit Button */
+.chatSubmit input[type="submit"] {
+    padding: 15px 20px; /* Add padding for the button */
+    font-size: 1rem; /* Set font size */
+    font-weight: bold; /* Make the text bold */
+    color: var(--text-hover); /* White text */
+    background-color: var(--accent-primary); /* Green background */
+    border: 1px solid var(--accent-secondary); /* Subtle border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth hover effect */
+}
+
+.chatSubmit input[type="submit"]:hover {
+    background-color: var(--accent-hover); /* Lighter green background on hover */
+    border-color: var(--accent-secondary-hover); /* Lighter border on hover */
+}
+
+/* Chat Menu */
+.chatMenu {
+    background-color: var(--background-container); /* Use container background color */
+    width: 20vw;
+    min-height: calc(100vh - 100px); /* Subtract header height to fit below it */
+    position: fixed;
+    left: -22vw; /* Initially hidden */
+    top: 100px; /* Start directly below the header */
+    padding: 20px; /* Adjust padding for content */
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 2px 0 5px var(--shadow-color); /* Use shadow color */
+    display: flex;
+    flex-direction: column;
+    z-index: 1100;
+}
+
+/* Active Chat Menu */
+.chatMenu.active {
+    left: 0; /* Slides in */
+}
+
+/* Chat Menu Links */
+.chatMenu .rooms {
+    color: var(--text-primary); /* Light gray text */
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: var(--background-hover); /* Slightly lighter background for rooms */
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover Effect for Chat Menu Links */
+.chatMenu .rooms:hover {
+    background-color: var(--accent-primary); /* Green background on hover */
+    color: var(--text-hover); /* White text on hover */
+}
+
+.chatMenu.active ~ #chatHeading {
+    margin-left: 20vw; /* Push the heading to the right */
+}
+
+.chatMenu.active ~ .chatContainer {
+    margin-left: 20vw; /* Push the chat to the right */
+}
+
+/* Chat Heading */
+#chatHeading {
+    margin-left: 2vw; /* Default margin when the menu is closed */
+    margin-top: 80px;
+    font-size: 2rem;
+    color: white;
+    position: relative;
+    z-index: 1000;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Hamburger Button */
+.hamburger {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1200;
+    position: fixed;
+    top: 25px; /* Adjust this value to align with the "The Crypt" anchor */
+    left: 10px; /* Keep it slightly to the left */
+    transition: left 0.3s ease-in-out;
+}
+
+/* Room Items */
+.roomItems {
+    margin-top: 70px; /* Spacing below the menu button */
+}
+
+/* Chat container shifts when menu is open */
+.chatContainer {
+    margin-left: 2vw; /* Default margin when the menu is closed */
+    padding: 60px 10px 10px; /* Added padding at the top to avoid overlap */
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Room Links */
+.rooms {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.rooms:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#headerTitle{
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+/* Header Styling */
+header {
+    display: flex; /* Align items horizontally */
+    justify-content: space-between; /* Space out "The Crypt" and the other links */
+    align-items: center; /* Vertically center items */
+    height: 100px; /* Set a fixed height for the header */
+    padding: 0 20px; /* Add horizontal padding */
+    background: linear-gradient(90deg, var(--background-container), var(--background-gradient-end)); /* Subtle gradient for the header */
+    box-shadow: 0 2px 5px var(--shadow-color); /* Subtle shadow for depth */
+    position: relative; /* Ensure the header stays in place */
+    z-index: 1200; /* Ensure it stays above other elements */
+}
+
+/* "The Crypt" Title */
+#headerTitle {
+    color: var(--accent-primary); /* Green accent color */
+    text-decoration: none; /* Remove underline */
+    font-size: 2rem; /* Larger font size for emphasis */
+    font-weight: bold; /* Make it bold */
+    margin-right: auto; /* Push it to the far left */
+    margin-left: 20px; /* Add margin to move it slightly to the right */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+#headerTitle:hover {
+    color: var(--accent-hover); /* Slightly lighter green on hover */
+}
+
+/* Header Links Container */
+.header-links {
+    display: flex; /* Align links horizontally */
+    gap: 15px; /* Keep spacing between the links */
+    margin-right: 20px; /* Push the group of links slightly to the left */
+}
+
+/* Header Links */
+header a {
+    color: var(--text-primary); /* Light gray text */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2rem; /* Slightly larger font size */
+    padding: 10px 15px; /* Add padding for clickable area */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+header a:hover {
+    background-color: var(--accent-primary); /* Blue background on hover */
+    color: var(--text-hover); /* White text on hover */
+}
+
+/* Profile Icon */
+#profileIcon {
+    width: 40px; /* Circle size */
+    height: 40px; /* Circle size */
+    background-color: var(--accent-primary); /* Blue background */
+    border-radius: 50%; /* Make it a circle */
+    display: inline-block; /* Ensure it behaves like an inline element */
+    text-indent: -9999px; /* Hide text if any */
+    overflow: hidden; /* Prevent overflow */
+    border: 2px solid var(--accent-secondary); /* Teal border for emphasis */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth hover effect */
+}
+
+#profileIcon:hover {
+    background-color: var(--accent-hover); /* Lighter teal background on hover */
+    border-color: var(--accent-secondary-hover); /* Blue border on hover */
+}
+
+/* Main Page Room List */
+#roomList.main-page {
+    width: 75vw; /* Set the width to 75% of the viewport */
+    margin: 20px auto; /* Center the room list horizontally with some margin */
+    padding: 20px; /* Add some padding inside the container */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack rooms vertically */
+    gap: 15px; /* Add margin between each room */
+    background-color: var(--background-container); /* Slightly lighter background for contrast */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px var(--shadow-color); /* Subtle shadow for depth */
+}
+
+/* Individual Room Items */
+#roomList.main-page .rooms {
+    padding: 15px; /* Add padding inside each room */
+    border-radius: 5px; /* Rounded corners */
+    background-color: var(--background-hover); /* Dark gray background */
+    color: var(--text-primary); /* Light gray text */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2rem; /* Slightly larger font size */
+    margin: 0 10px; /* Add horizontal margin to create a gap */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+/* Hover Effect for Rooms */
+#roomList.main-page .rooms:hover {
+    background-color: var(--accent-primary); /* Green background on hover */
+    color: var(--text-hover); /* White text on hover */
+    transform: scale(1.02); /* Slight zoom effect on hover */
+}
+
+
+
+/* Username Styling */
+.username {
+    font-weight: bold; /* Make the username bold */
+    color: var(--accent-primary); /* Optional: Use the accent color for the username */
+    margin-right: 5px; /* Add spacing between the username and the message */
+}
+
+/* Create Room Container */
+.create-room-container {
+    max-width: 600px; /* Increase the maximum width */
+    margin: 50px auto; /* Center the container */
+    padding: 30px; /* Add more padding inside the container */
+    background-color: var(--background-container); /* Match your theme */
+    border-radius: 10px; /* Slightly larger rounded corners */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow for emphasis */
+    text-align: center;
+}
+
+.create-room-container h1 {
+    font-size: 2rem; /* Slightly larger heading */
+    margin-bottom: 25px; /* Add more spacing below the heading */
+    color: var(--text-primary);
+}
+
+.create-room-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add more spacing between inputs */
+}
+
+.create-room-container input[type="text"],
+.create-room-container input[type="password"],
+.create-room-container input[type="submit"] {
+    padding: 15px; /* Increase padding for inputs */
+    font-size: 1.1rem; /* Slightly larger font size */
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    width: 100%; /* Ensure inputs take up the full width */
+    box-sizing: border-box;
+    background-color: var(--background-hover);
+    color: var(--text-primary);
+}
+
+.create-room-container input[type="submit"] {
+    background-color: var(--accent-primary);
+    color: var(--text-hover);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-room-container input[type="submit"]:hover {
+    background-color: #1db95488;
+}
+
+.create-room-container .back-button {
+    display: inline-block;
+    margin-top: 25px; /* Add more spacing above the back button */
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 1.1rem; /* Slightly larger font size */
+    transition: color 0.3s ease;
+}
+
+.create-room-container .back-button:hover {
+    color: var(--accent-hover);
+}
+
+/* Form Container */
+.form-container {
+    width: 40%; /* Set the width of the container */
+    margin: 10vh auto; /* Center the container vertically and horizontally */
+    padding: 30px; /* Add padding inside the container */
+    background-color: var(--background-container); /* Match the container background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px var(--shadow-color); /* Subtle shadow for depth */
+    text-align: center; /* Center the text inside the container */
+    color: var(--text-primary); /* Use primary text color */
+}
+
+/* Form Heading */
+.form-container h1 {
+    font-size: 2rem; /* Larger font size for the heading */
+    color: var(--accent-primary); /* Use the green accent color */
+    margin-bottom: 20px; /* Add spacing below the heading */
+}
+
+/* Input Fields */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: 80%; /* Make the input fields take up most of the container's width */
+    padding: 10px; /* Add padding inside the input */
+    font-size: 1rem; /* Set font size */
+    border: 1px solid var(--border-color); /* Subtle border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: var(--background-hover); /* Slightly lighter background for the input */
+    color: var(--text-primary); /* Text color */
+    outline: none; /* Remove default outline */
+    margin-bottom: 20px; /* Add spacing below the input */
+    transition: border-color 0.3s ease; /* Smooth focus effect */
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="email"]:focus,
+.form-container input[type="password"]:focus {
+    border-color: var(--accent-primary); /* Highlight border on focus */
+}
+
+/* Submit Button */
+.form-container input[type="submit"],
+.form-container a.back-button {
+    display: block; /* Ensure the button is on its own line */
+    width: 80%; /* Match the width of the input fields */
+    margin: 0 auto; /* Center the button */
+    padding: 0; /* Remove extra padding */
+    height: 45px; /* Match the height of the input fields */
+    line-height: 45px; /* Vertically center the text */
+    font-size: 1rem; /* Set font size */
+    font-weight: bold; /* Make the text bold */
+    color: var(--text-hover); /* White text */
+    background-color: var(--accent-primary); /* Green background */
+    border: 1px solid var(--accent-secondary); /* Subtle border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    text-align: center; /* Center the text inside the button */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth hover effect */
+}
+
+.form-container input[type="submit"]:hover,
+.form-container a.back-button:hover {
+    background-color: var(--accent-hover); /* Lighter green background on hover */
+    border-color: var(--accent-secondary-hover); /* Lighter border on hover */
+}
+
+/* Back Button */
+.form-container a.back-button {
+    display: block; /* Ensure the button is on its own line */
+    margin-top: 20px; /* Add spacing above the button */
+    color: var(--text-primary); /* Use primary text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 1rem; /* Set font size */
+    border-radius: 5px; /* Rounded corners */
+    background-color: var(--background-hover); /* Slightly lighter background */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+.form-container a.back-button:hover {
+    background-color: var(--accent-primary); /* Green background on hover */
+    color: var(--text-hover); /* White text on hover */
+}
+
+/* Input Group Styling */
+.input-group {
+    position: relative; /* Position relative for icon placement */
+    margin-bottom: 20px; /* Add spacing between input groups */
+    width: 80%; /* Match the width of the input fields */
+    margin-left: auto; /* Center the input group */
+    margin-right: auto; /* Center the input group */
+}
+
+/* Input Field Styling */
+.input-group input {
+    width: 100%; /* Full width inside the input group */
+    padding: 10px 10px 10px 40px; /* Add padding to make space for the icon */
+    height: 45px; /* Set a consistent height for the input fields */
+    font-size: 1rem; /* Set font size */
+    border: 1px solid var(--border-color); /* Subtle border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: var(--background-hover); /* Slightly lighter background */
+    color: var(--text-primary); /* Text color */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease; /* Smooth focus effect */
+}
+
+.input-group input:focus {
+    border-color: var(--accent-primary); /* Highlight border on focus */
+}
+
+/* Icon Styling */
+.input-group .icon {
+    position: absolute; /* Position the icon inside the input group */
+    top: 30%; /* Center vertically */
+    left: -1rem; /* Use a relative unit for spacing from the left */
+    transform: translateY(-50%); /* Adjust for perfect vertical centering */
+    color: var(--text-secondary); /* Use secondary text color */
+    font-size: 1.2rem; /* Slightly larger icon size */
+    pointer-events: none; /* Prevent the icon from interfering with input clicks */
+}
+
+/* Submit Button */
+.form-container input[type="submit"] {
+    display: block; /* Ensure the button is on its own line */
+    width: 80%; /* Match the width of the input fields */
+    margin: 0 auto; /* Center the button */
+    font-size: 1rem; /* Set font size */
+    font-weight: bold; /* Make the text bold */
+    color: var(--text-hover); /* White text */
+    background-color: var(--accent-primary); /* Green background */
+    border: 1px solid var(--accent-secondary); /* Subtle border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth hover effect */
+}
+
+.form-container input[type="submit"]:hover {
+    background-color: #1db95488;  /* Lighter green background on hover */
+
+}
+
+#roomList {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: flex-start; /* Align items at the top */
+    min-height: calc(100vh - 100px); /* Make it fill the viewport height minus the header height */
+    background-color: var(--background-container); /* Match the container background color */
+    padding: 20px; /* Add padding inside the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px var(--shadow-color); /* Subtle shadow for depth */
+}
+
+#passwordedRoom {
+    position: relative; /* Enable positioning for the lock icon */
+    padding-right: 30px; /* Add space for the lock icon */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center the text and icon */
+    justify-content: space-between; /* Space out the text and icon */
+}
+
+#passwordedRoom .lock-icon {
+    font-size: 1.2rem; /* Adjust the size of the lock icon */
+    color: var(--text-secondary); /* Use secondary text color */
+    margin-left: auto; /* Push the icon to the far right */
+    pointer-events: none; /* Prevent the icon from interfering with clicks */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+

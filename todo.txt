@@ -1,0 +1,11 @@
+edit delete
+
+
+--Optional--
+
+displaya hur många som är inne i varje rum
+utöka registrering för mer information
+utöka meddelanden men bland annat datum
+skicka filer
+
+profile page där man ser alla sina rum och kan få info om dem och ta bort

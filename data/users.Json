@@ -1,0 +1,20 @@
+[
+   {
+      "username": "Ahlabo",
+      "email": "ahlabosebastian@gmail.com",
+      "password": "$2a$12$/iW.NEYZfRf/l3uvqphkT.IOsJsznu6VSuVaf9RFSUuLd2BpPfw0W",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801"
+   },
+   {
+      "username": "Sven",
+      "email": "sebbe.ahlabo@hotmail.com",
+      "password": "$2a$12$gJNFN/0vv1nMsCVH1QUkmuOtRNpT6eIT5Q09Qd79JZEJcvIudIGEm",
+      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76"
+   },
+   {
+      "username": "Admin",
+      "email": "admin@admin.com",
+      "password": "$2a$12$BSPT.Y0M6ohM2PZUo9uaIup2JD15IYdFabIekE3Edmm5SN5a7TNtS",
+      "userId": "0195f276-4494-703c-a9a8-283f9808e0a6"
+   }
+]
