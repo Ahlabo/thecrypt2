@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const fs = require("fs");
-const { render, getHTML, getJson } = require('./func.js');
+const { render, getJson, showChat } = require('./utils.js');
 const bcrypt = require("bcryptjs");
 const session = require("express-session");
 
@@ -14,7 +14,7 @@ const escape = require("escape-html");
 //server
 const { createServer } = require("http");
 const { Server } = require("socket.io");
-const { getJSON } = require("./func");
+const { getJSON } = require("./utils.js");
 const { create } = require("domain");
 const server = createServer(app);
 const io = new Server(server);
@@ -42,6 +42,7 @@ app.get("/chat/:roomId", handleRooms);
 app.get("/session", handleSession);
 app.get("/register", registerPage);
 app.get("/login", loginPage);
+app.get("/logout", logout);
 app.post("/register", register);
 app.post("/login", login);
 app.get("/createRoom", roomCreator);
@@ -105,11 +106,10 @@ function handleConnection(socket) {
         message = escape(message);
 
         let chatlog = getJson("chatlog");
-        const newMessage = { roomId, message, userId, username,messageId, timestamp: new Date() };
+        const newMessage = { roomId, message, userId, username,messageId, timestamp: new Date()};
         chatlog.push(newMessage);
         fs.writeFileSync(__dirname + "/data/chatlog.json", JSON.stringify(chatlog, null, 3));
 
-        // Emit the entire message object to the room
         io.to(roomId).emit("get-message", newMessage);
     });
 
@@ -130,9 +130,9 @@ function handleConnection(socket) {
 function showMainPage(req, res) {
     let content = `
         <div id="roomList" class="main-page"></div>
-        <script src="client.js"></script>
+        <script src="/client.js" defer></script>
         `;
-    res.send(render(content));
+    res.send(render(content, req));
 }
 
 function showRegisterPage(req, res) {
@@ -156,8 +156,9 @@ function showRegisterPage(req, res) {
         </form>
         <a href="/" class="back-button">Back to Main Page</a>
     </div>
+      <script src="/client.js" defer></script>
     `;
-    res.send(render(content));
+    res.send(render(content, req));
 }
 
 function showLoginPage(req, res) {
@@ -177,8 +178,9 @@ function showLoginPage(req, res) {
         </form>
         <a href="/" class="back-button">Back to Main Page</a>
     </div>
+      <script src="/client.js" defer></script>
     `;
-    res.send(render(content));
+    res.send(render(content, req));
 }
 
 function roomCreator(req, res) {
@@ -192,8 +194,9 @@ function roomCreator(req, res) {
         </form>
         <a href="/" class="back-button">Back to Main Page</a>
     </div>
+      <script src="/client.js" defer></script>
     `;
-    res.send(render(content));
+    res.send(render(content, req));
 }
 
 function handleRooms(req, res) {
@@ -216,30 +219,13 @@ function handleRooms(req, res) {
                 </form>
                 <a href="/" class="back-button">Back to Main Page</a>
             </div>
+              <script src="/client.js" defer></script>
         `;
-        return res.send(render(content));
+        return res.send(render(content, req));
     }
 
-    let content = `
-        <button id="menuToggle" class="hamburger">&#9776;</button> 
-        <div>
-            <div id="roomList" class="chatMenu">
-                <button id="menuToggleInside" class="hamburger">&#9776;</button> 
-                <div class="roomItems"></div> 
-            </div>
-            <div class="chatContainer">
-                <div id="chat"></div>
-                <div class="chatSubmit">
-                    <form id="chatForm">
-                        <input type="text" autocomplete="off" name="message" id="chatInput">
-                        <input type="submit" value="Send">
-                    </form>
-                </div>
-            </div>
-        </div>
-        <script src="client.js" data-room-id="${roomId}" data-user-id="${req.session.userId}"></script>
-    `;
-    res.send(render(content));
+    let content = showChat(roomId, req.session.userId);
+    res.send(render(content, req));
 }
 
 async function passwordRoomhandler(req, res) {
@@ -265,34 +251,20 @@ async function passwordRoomhandler(req, res) {
         }
     }
 
-    let content = `
-        <button id="menuToggle" class="hamburger">&#9776;</button> 
-        <div>
-            <div id="roomList" class="chatMenu">
-                <button id="menuToggleInside" class="hamburger">&#9776;</button> 
-                <div class="roomItems"></div> 
-            </div>
-            <div class="chatContainer">
-                <div id="chat"></div>
-                <div class="chatSubmit">
-                    <form id="chatForm">
-                        <input type="text" autocomplete="off" name="message" id="chatInput">
-                        <input type="submit" value="Send">
-                    </form>
-                </div>
-            </div>
-        </div>
-        <script src="client.js" data-room-id="${roomId}" data-user-id="${req.session.userId}"></script>
-    `;
-    res.send(render(content));
+    let content = showChat(roomId, req.session.userId);
+    res.send(render(content, req));
 }
 
 async function createRoom(req, res) {
     try {
         let data = req.body;
         let rooms = getJson("rooms");
+        data.userId = req.session.userId;
 
         if (req.session.auth == false) return res.send("You need to be logged in to create a room");
+
+        let userRooms = rooms.filter(r => r.userId == data.userId);
+        if (userRooms.length >= 3) return res.send("You can only create 3 rooms");
 
         data.Roomname = escape(data.Roomname);
 
@@ -357,5 +329,10 @@ async function login(req, res) {
     req.session.userId = userExist.userId;
     console.log("login succeeded");
 
+    res.redirect("/");
+}
+
+function logout(req, res){
+    req.session.destroy();
     res.redirect("/");
 }

@@ -1,10 +1,17 @@
 [
    {
       "Roomname": "General",
-      "RoomPassword": ""
+      "RoomPassword": "",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801"
    },
    {
       "Roomname": "anton hate group",
-      "RoomPassword": "$2a$12$0ox/zdbpiMhcMyllnuD.MeigYxZIS3.DU3gXFVTS08ysTGQLaoZAW"
+      "RoomPassword": "$2a$12$4G033oBBA.gkvf897OXGOeXkwlvomKyQbmB4vmadJTZ57hrAqQjHm",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801"
+   },
+   {
+      "Roomname": "3",
+      "RoomPassword": "",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801"
    }
 ]

@@ -1,7 +1,7 @@
 const clientSocket = io();
 
 const roomList = document.querySelector("#roomList");
-if (!roomList) console.error("Error: #roomList not found!");
+
 
 const messageInput = document.querySelector("#chatInput");
 const chatBox = document.querySelector("#chat");
@@ -10,6 +10,16 @@ const form = document.querySelector("#chatForm");
 let roomId = null; 
 
 //rum
+
+document.addEventListener("DOMContentLoaded", () => {
+    const roomScript = document.querySelector('script[data-room-id]');
+    roomId = roomScript ? roomScript.getAttribute("data-room-id") : null;
+
+    if (roomId) {
+        clientSocket.emit("join-room", roomId);
+    }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     clientSocket.emit("get-rooms");
 });
@@ -20,15 +30,6 @@ clientSocket.on("room-list", (rooms) => {
 
 clientSocket.on("room-created", (rooms) => {
     updateRoomList(rooms);
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    const roomScript = document.querySelector('script[data-room-id]');
-    roomId = roomScript ? roomScript.getAttribute("data-room-id") : null;
-
-    if (roomId) {
-        clientSocket.emit("join-room", roomId);
-    }
 });
 
 function updateRoomList(rooms) {
@@ -58,6 +59,23 @@ if (messageInput && chatBox && form) {
     const roomScript = document.querySelector('script[data-room-id]');
     const currentUserId = roomScript ? roomScript.getAttribute("data-user-id") : null;
 
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("Form submitted!");
+        let message = messageInput.value.trim();
+        if (!message) return;
+
+        messageInput.value = "";
+
+        if (roomId) {
+            clientSocket.emit("send-message", { roomId, message });
+        } else {
+            console.error("Room ID is not defined.");
+        }
+    });
+
+    
     clientSocket.on("load-messages", (messages) => {
         messages.forEach((msg) => {
             const isSender = msg.userId === currentUserId;
@@ -81,22 +99,19 @@ if (messageInput && chatBox && form) {
             messageDiv.remove();
         }
     });
-    
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        console.log("Form submitted!");
-        let message = messageInput.value.trim();
-        if (!message) return;
 
-        messageInput.value = "";
-
-        if (roomId) {
-            clientSocket.emit("send-message", { roomId, message });
-        } else {
-            console.error("Room ID is not defined.");
-        }
+    clientSocket.on("error-message", (error) => {
+        alert(error);
     });
 
+    clientSocket.on("system-message", (msg) => {
+        const div = document.createElement("div");
+        div.classList.add("system-message");
+        div.textContent = msg;
+        chatBox.append(div);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    });
+    
     function displayMessage(msg, isSender) {
         const div = document.createElement("div");
         const p = document.createElement("p");
@@ -123,18 +138,6 @@ if (messageInput && chatBox && form) {
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    clientSocket.on("error-message", (error) => {
-        alert(error);
-    });
-
-
-    clientSocket.on("system-message", (msg) => {
-        const div = document.createElement("div");
-        div.classList.add("system-message");
-        div.textContent = msg;
-        chatBox.append(div);
-        chatBox.scrollTop = chatBox.scrollHeight;
-    });
 
     //Här under är det bara saker som har med stil att göra, delvis Ai gjort
     document.getElementById("menuToggle").addEventListener("click", function() {

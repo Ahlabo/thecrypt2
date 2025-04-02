@@ -590,5 +590,54 @@
       "username": "Ahlabo",
       "messageId": "0195f2dc-3705-7512-a3ea-06cbb7044ce8",
       "timestamp": "2025-04-01T19:37:53.157Z"
+   },
+   {
+      "roomId": "General",
+      "message": "1234",
+      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
+      "username": "Sven",
+      "messageId": "0195f72d-98a6-7499-b5b1-043685e05b59",
+      "timestamp": "2025-04-02T15:45:15.431Z"
+   },
+   {
+      "roomId": "General",
+      "message": "sasa",
+      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
+      "username": "Sven",
+      "messageId": "0195f72d-9d87-7628-9401-c47c2d3e8986",
+      "timestamp": "2025-04-02T15:45:16.679Z"
+   },
+   {
+      "roomId": "General",
+      "message": "asd",
+      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
+      "username": "Sven",
+      "messageId": "0195f72d-9f6e-708f-acb8-2490ddb3fbcd",
+      "timestamp": "2025-04-02T15:45:17.166Z"
+   },
+   {
+      "roomId": "General",
+      "message": "sa",
+      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
+      "username": "Sven",
+      "messageId": "0195f72d-a0cf-70bb-8bf1-5c934698dc1c",
+      "timestamp": "2025-04-02T15:45:17.519Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "asdsad",
+      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
+      "username": "Sven",
+      "messageId": "0195f738-aed6-75d4-8f86-453615ed116b",
+      "timestamp": "2025-04-02T15:57:22.006Z"
+   },
+   {
+      "roomId": "General",
+      "message": "hej",
+      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
+      "username": "Sven",
+      "messageId": "0195f7c4-7e23-747d-a302-3bf1638de726",
+      "timestamp": "2025-04-02T18:30:04.579Z",
+      "ip": "::1"
    }
 ]

@@ -532,7 +532,7 @@ header a:hover {
     font-weight: bold; /* Make the text bold */
     color: var(--text-hover); /* White text */
     background-color: var(--accent-primary); /* Green background */
-    border: 1px solid var(--accent-secondary); /* Subtle border */
+    border: 1px solid var(--background-container); /* Subtle border */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Change cursor to pointer on hover */
     text-align: center; /* Center the text inside the button */
@@ -624,7 +624,7 @@ header a:hover {
     display: flex; /* Use flexbox for layout */
     flex-direction: column; /* Stack items vertically */
     justify-content: flex-start; /* Align items at the top */
-    min-height: calc(100vh - 100px); /* Make it fill the viewport height minus the header height */
+    min-height: calc(95vh - 100px); /* Make it fill the viewport height minus the header height */
     background-color: var(--background-container); /* Match the container background color */
     padding: 20px; /* Add padding inside the container */
     border-radius: 10px; /* Rounded corners */
@@ -646,4 +646,13 @@ header a:hover {
     pointer-events: none; /* Prevent the icon from interfering with clicks */
     transition: color 0.3s ease; /* Smooth hover effect */
 }
+/* Center the copyright text and make it gray */
+footer {
+    text-align: center; /* Center the text horizontally */
+    margin-top: 20px; /* Add some spacing above the footer */
+}
 
+#copyright {
+    color: gray; /* Set the text color to gray */
+    font-size: 0.9rem; /* Slightly smaller font size */
+}
