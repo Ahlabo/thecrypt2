@@ -111,6 +111,14 @@ if (messageInput && chatBox && form) {
         chatBox.append(div);
         chatBox.scrollTop = chatBox.scrollHeight;
     });
+
+    clientSocket.on("message-edited", ({ messageId, newMessage }) => {
+        const messageDiv = document.querySelector(`[data-message-id="${messageId}"]`);
+        if (messageDiv) {
+            const messageSpan = messageDiv.querySelector(".message");
+            messageSpan.textContent = newMessage;
+        }
+    });
     
     function displayMessage(msg, isSender) {
         const div = document.createElement("div");
@@ -119,11 +127,13 @@ if (messageInput && chatBox && form) {
         const usernameSpan = document.createElement("span");
         usernameSpan.classList.add("username");
         usernameSpan.textContent = msg.username + ":";
-    
-        const messageContent = document.createTextNode(msg.message);
+
+        const messageSpan = document.createElement("span");
+        messageSpan.classList.add("message");
+        messageSpan.textContent = msg.message;
     
         p.appendChild(usernameSpan);
-        p.appendChild(messageContent);
+        p.appendChild(messageSpan);
         div.appendChild(p);
         div.setAttribute("data-message-id", msg.messageId);
     
@@ -139,7 +149,6 @@ if (messageInput && chatBox && form) {
     }
 
 
-    //Här under är det bara saker som har med stil att göra, delvis Ai gjort
     document.getElementById("menuToggle").addEventListener("click", function() {
         let menu = document.getElementById("roomList");
         let button = document.getElementById("menuToggle");
@@ -172,8 +181,11 @@ if (messageInput && chatBox && form) {
     
         const editIcon = document.createElement("i");
         editIcon.classList.add("fas", "fa-edit", "edit-icon");
-        editIcon.addEventListener("click", () => {
-            console.log("Edit clicked for message:", msg.message);
+        editIcon.addEventListener("click", (e) => {
+            const parentDiv = e.target.parentElement;
+            const messageId = div.getAttribute("data-message-id");
+            editMode(messageId, parentDiv);
+            
         });
         div.appendChild(editIcon);
     
@@ -188,6 +200,43 @@ if (messageInput && chatBox && form) {
         div.addEventListener("mouseleave", () => {
             div.classList.remove("show-icons");
         });
+    }
+
+    function editMode(messageId, parentDiv){
+        
+        const editIcon = document.querySelector(".edit-icon");
+        const messageText = parentDiv.querySelector("p").textContent;
+        let [username, ...messageParts] = messageText.split(":");
+        let message = messageParts.join(":");
+
+
+        const editForm = document.createElement("form");
+        const input = document.createElement("input");
+        input.type = "text";
+        input.value = message;
+        input.classList.add("edit-form");
+
+        editForm.appendChild(input);
+
+        let messageDiv = parentDiv.querySelector(".message");
+        messageDiv.replaceWith(editForm);
+
+        editForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const newMessage = input.value.trim();
+            if (newMessage) {
+                clientSocket.emit("edit-message", { messageId, newMessage });
+                editForm.replaceWith(messageDiv);
+                messageDiv.textContent = newMessage;
+            } else {
+                alert("Message cannot be empty.");
+            }
+        });
+
+
+        console.log (parentDiv);
+        console.log(messageId);
+        console.log(message);
     }
 }
 

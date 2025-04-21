@@ -14,8 +14,6 @@ const escape = require("escape-html");
 //server
 const { createServer } = require("http");
 const { Server } = require("socket.io");
-const { getJSON } = require("./utils.js");
-const { create } = require("domain");
 const server = createServer(app);
 const io = new Server(server);
 server.listen(8080);
@@ -124,6 +122,21 @@ function handleConnection(socket) {
         fs.writeFileSync(__dirname + "/data/chatlog.json", JSON.stringify(chatlog, null, 3));
         io.emit("message-deleted", { messageId });
     });
+
+    socket.on("edit-message", ({messageId, newMessage})=>{
+        let chatlog = getJson("chatlog");
+        let SelectedMessage = chatlog.find((msg) => msg.messageId === messageId);
+
+        if (!SelectedMessage) return console.log("Message not found");
+        if (SelectedMessage.userId !== socket.request.session.userId){
+            io.emit("error-message", "You are not the sender of this message");
+            return;
+        }
+
+        SelectedMessage.message = newMessage;
+        fs.writeFileSync(__dirname + "/data/chatlog.json", JSON.stringify(chatlog, null, 3));
+        io.emit("message-edited", { messageId, newMessage });
+    });
 }
 
 // Handle page rendering
@@ -200,59 +213,74 @@ function roomCreator(req, res) {
 }
 
 function handleRooms(req, res) {
-    const roomId = escape(req.params.roomId);
+    try{
 
-    let rooms = getJson("rooms");
-    let room = rooms.find(r => r.Roomname === roomId);
 
-    if (!room) {
-        return res.status(404).send("Room not found");
+        const roomId = escape(req.params.roomId);
+
+        let rooms = getJson("rooms");
+        let room = rooms.find(r => r.Roomname === roomId);
+
+        if (!room) {
+            return res.status(404).send("Room not found");
+        }
+
+        if (room.RoomPassword) {
+            let content = `
+                <div class="form-container">
+                    <h1>Enter Room Password</h1>
+                    <form action="/joinRoom/${roomId}" method="POST">
+                        <input type="password" name="RoomPassword" placeholder="Enter room password" required />
+                        <input type="submit" value="Join Room" />
+                    </form>
+                    <a href="/" class="back-button">Back to Main Page</a>
+                </div>
+                <script src="/client.js" defer></script>
+            `;
+            return res.send(render(content, req));
+        }
+
+        let content = showChat(roomId, req.session.userId);
+        res.send(render(content, req));
+
+    } catch (error){
+        console.error("Error handling rooms:", error.message);
+        return res.status(500).send("Internal server error");
     }
-
-    if (room.RoomPassword) {
-        let content = `
-            <div class="form-container">
-                <h1>Enter Room Password</h1>
-                <form action="/joinRoom/${roomId}" method="POST">
-                    <input type="password" name="RoomPassword" placeholder="Enter room password" required />
-                    <input type="submit" value="Join Room" />
-                </form>
-                <a href="/" class="back-button">Back to Main Page</a>
-            </div>
-              <script src="/client.js" defer></script>
-        `;
-        return res.send(render(content, req));
-    }
-
-    let content = showChat(roomId, req.session.userId);
-    res.send(render(content, req));
 }
 
 async function passwordRoomhandler(req, res) {
-    const roomId = escape(req.params.roomId);
-    const { RoomPassword } = req.body;
+    try{
 
-    let rooms = getJson("rooms");
-    let room = rooms.find(r => r.Roomname === roomId);
+        const roomId = escape(req.params.roomId);
+        const { RoomPassword } = req.body;
 
-    if (!room) {
-        return res.status(404).send("Room not found");
-    }
+        let rooms = getJson("rooms");
+        let room = rooms.find(r => r.Roomname === roomId);
 
-
-    if (room.RoomPassword) {
-        if (!RoomPassword || !req.session.auth) {
-            return res.status(401).send("You need to be logged in and provide a password to join this room");
+        if (!room) {
+            return res.status(404).send("Room not found");
         }
 
-        const isPasswordCorrect = await bcrypt.compare(RoomPassword, room.RoomPassword);
-        if (!isPasswordCorrect) {
-            return res.status(401).send("Wrong password");
-        }
-    }
 
-    let content = showChat(roomId, req.session.userId);
-    res.send(render(content, req));
+        if (room.RoomPassword) {
+            if (!RoomPassword || !req.session.auth) {
+                return res.status(401).send("You need to be logged in and provide a password to join this room");
+            }
+
+            const isPasswordCorrect = await bcrypt.compare(RoomPassword, room.RoomPassword);
+            if (!isPasswordCorrect) {
+                return res.status(401).send("Wrong password");
+            }
+        }
+
+        let content = showChat(roomId, req.session.userId);
+        res.send(render(content, req));
+        
+    } catch (error){
+        console.error("Error handling passworded room:", error.message);
+        return res.status(500).send("Internal server error");
+    }
 }
 
 async function createRoom(req, res) {
@@ -290,49 +318,70 @@ async function createRoom(req, res) {
 
 // Handle user registration and login
 async function register(req, res) {
-    let data = req.body;
+    try{
+        let data = req.body;
 
-    data.username = escape(data.username);
-    data.email = escape(data.email);
+        data.username = escape(data.username);
+        data.email = escape(data.email);
 
-    let userId = uuidv7();
-    data.userId = userId;
+        if (data.password.trim() === "" || data.email.trim() === "" || data.username.trim() === "") return res.send("please fill in everything")
 
-    let users = getJson("users");
+        let userId = uuidv7();
+        data.userId = userId;
 
-    data.password = await bcrypt.hash(data.password, 12);
-    let userExist = users.find(u => u.email == data.email);
-    let usernameExist = users.find(u => u.username == data.username);
+        let users = getJson("users");
 
-    if (userExist || usernameExist) return res.send("User exists");
-    users.push(data);
-    fs.writeFileSync(__dirname + "/data/users.json", JSON.stringify(users, null, 3));
-    res.redirect("/");
-    console.log("User:" + data.email + " with password: " + data.password + " Has successfully registered");
+        data.password = await bcrypt.hash(data.password, 12);
+        let userExist = users.find(u => u.email == data.email);
+        let usernameExist = users.find(u => u.username == data.username);
+
+        if (userExist || usernameExist) return res.send("User exists");
+        users.push(data);
+        fs.writeFileSync(__dirname + "/data/users.json", JSON.stringify(users, null, 3));
+        res.redirect("/");
+        console.log("User:" + data.email + " with password: " + data.password + " Has successfully registered");
+
+    } catch (error) {
+        console.error("Error during registration:", error.message);
+        return res.status(500).send("Internal server error");
+    }
 }
 
 async function login(req, res) {
-    let data = req.body;
+    try{ 
 
-    data.email = escape(data.email);
+        let data = req.body;
 
-    let users = getJson("users");
-    let userExist = users.find(u => u.email == data.email);
+        data.email = escape(data.email);
+    
+        let users = getJson("users");
+        let userExist = users.find(u => u.email == data.email);
+    
+        if (!userExist) return res.send("wrong email");
+        let pwCheck = await bcrypt.compare(data.password, userExist.password);
+        if (!pwCheck) return res.send("Wrong password");
+    
+        req.session.auth = true;
+        req.session.email = data.email;
+        req.session.username = userExist.username;
+        req.session.userId = userExist.userId;
+        console.log("login succeeded");
+    
+        res.redirect("/");
+    } catch (error) {
+        console.error("Error during login:", error.message);
+        return res.status(500).send("Internal server error");
+    }
 
-    if (!userExist) return res.send("wrong email");
-    let pwCheck = await bcrypt.compare(data.password, userExist.password);
-    if (!pwCheck) return res.send("Wrong password");
-
-    req.session.auth = true;
-    req.session.email = data.email;
-    req.session.username = userExist.username;
-    req.session.userId = userExist.userId;
-    console.log("login succeeded");
-
-    res.redirect("/");
 }
 
 function logout(req, res){
-    req.session.destroy();
-    res.redirect("/");
+    try{
+        req.session.destroy();
+        res.redirect("/");
+    } catch (error) {
+        console.error("Error during logout:", error.message);
+        return res.status(500).send("Internal server error");
+    }
+    
 }

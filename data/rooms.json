@@ -10,8 +10,13 @@
       "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801"
    },
    {
-      "Roomname": "3",
+      "Roomname": "test 1",
       "RoomPassword": "",
+      "userId": "01961f3a-2c88-7398-887b-8f126919482f"
+   },
+   {
+      "Roomname": "test 2",
+      "RoomPassword": "$2a$12$XsByicPshB187wX/GdM4CuxPgpdaPF17G/rZro4IBU/Fg.CtyUKKS",
       "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801"
    }
 ]

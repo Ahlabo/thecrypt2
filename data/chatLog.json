@@ -1,643 +1,98 @@
 [
    {
-      "roomId": "Main",
+      "roomId": "General",
+      "message": "hejsansasasa",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "01960088-da4e-77c9-9f45-edee7715910f",
+      "timestamp": "2025-04-04T11:21:30.961Z"
+   },
+   {
+      "roomId": "General",
+      "message": "hejsasasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "userId": "01960097-d278-73b4-a3a2-19e6143d4918",
+      "username": "hackerman",
+      "messageId": "01960098-5c6e-7227-8168-5042886ed759",
+      "timestamp": "2025-04-04T11:38:27.313Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "hejsan",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "019600ae-e5cf-7709-bec3-254aa6f7291e",
+      "timestamp": "2025-04-04T12:03:04.274Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "hej på dig",
+      "userId": "01960097-d278-73b4-a3a2-19e6143d4918",
+      "username": "hackerman",
+      "messageId": "019600ae-f4d0-7589-bf5c-3e97e4fe2303",
+      "timestamp": "2025-04-04T12:03:08.115Z"
+   },
+   {
+      "roomId": "anton hate group",
+      "message": "fuck anton",
+      "userId": "01960097-d278-73b4-a3a2-19e6143d4918",
+      "username": "hackerman",
+      "messageId": "019600b7-30a7-7635-a865-01b308c7477f",
+      "timestamp": "2025-04-04T12:12:07.722Z"
+   },
+   {
+      "roomId": "anton hate group",
       "message": "hej",
-      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
-      "username": "asas",
-      "messageId": "0195f21b-b6fa-754e-8ea3-d76132512a41",
-      "timestamp": "2025-04-01T16:07:37.466Z"
+      "userId": "01960097-d278-73b4-a3a2-19e6143d4918",
+      "username": "hackerman",
+      "messageId": "019600b7-6570-7419-9d2f-60589b326ec1",
+      "timestamp": "2025-04-04T12:12:21.234Z"
    },
    {
-      "roomId": "Main",
+      "roomId": "General",
+      "message": "sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa",
+      "userId": "01960097-d278-73b4-a3a2-19e6143d4918",
+      "username": "hackerman",
+      "messageId": "019600bc-ed75-748a-b279-38a2dbfe53a1",
+      "timestamp": "2025-04-04T12:18:23.734Z"
+   },
+   {
+      "roomId": "General",
+      "message": "sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa sasasasasasa  sasasasasasa",
+      "userId": "01960097-d278-73b4-a3a2-19e6143d4918",
+      "username": "hackerman",
+      "messageId": "019600bd-c608-756a-a224-5519979baae5",
+      "timestamp": "2025-04-04T12:19:19.179Z"
+   },
+   {
+      "roomId": "anton hate group",
       "message": "hej",
-      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
-      "username": "asas",
-      "messageId": "0195f21b-c061-747c-a796-917adb79f287",
-      "timestamp": "2025-04-01T16:07:39.873Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
       "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
       "username": "Ahlabo",
-      "messageId": "0195f21f-bb5e-75ee-ab83-cbd7e2c8b529",
-      "timestamp": "2025-04-01T16:12:00.734Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "ss",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-bc1d-76bc-9a57-8aefec9db8b5",
-      "timestamp": "2025-04-01T16:12:00.926Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-bccc-717d-b724-701a80779582",
-      "timestamp": "2025-04-01T16:12:01.100Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-bd79-769f-afae-3647700808d6",
-      "timestamp": "2025-04-01T16:12:01.273Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-be37-7144-94fa-c878e458991f",
-      "timestamp": "2025-04-01T16:12:01.464Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-bed8-750f-a8a7-1642f3b8f37d",
-      "timestamp": "2025-04-01T16:12:01.625Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-bf9b-77df-bd21-9854eecf1339",
-      "timestamp": "2025-04-01T16:12:01.819Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-c05e-7640-b71e-9738eebada25",
-      "timestamp": "2025-04-01T16:12:02.014Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-c11a-768b-9d09-fa2441bf8399",
-      "timestamp": "2025-04-01T16:12:02.202Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-c1d3-72db-a1f1-647bee7ff710",
-      "timestamp": "2025-04-01T16:12:02.387Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-c28b-70e4-85a2-81d204f43ca9",
-      "timestamp": "2025-04-01T16:12:02.572Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-c348-7108-82e8-92518e9f1012",
-      "timestamp": "2025-04-01T16:12:02.760Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-c40f-743e-a0e4-69ece00deafc",
-      "timestamp": "2025-04-01T16:12:02.959Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-c4d0-72b0-b814-022d47ca8f64",
-      "timestamp": "2025-04-01T16:12:03.152Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-c59d-701d-9159-8b1f2fdc1732",
-      "timestamp": "2025-04-01T16:12:03.358Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "ss",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-c689-7192-a91a-3e1d448da195",
-      "timestamp": "2025-04-01T16:12:03.593Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f21f-c76f-750e-90bd-76199ed083d4",
-      "timestamp": "2025-04-01T16:12:03.823Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "&lt;script&gt;alert(&#39;bitch&#39;)&lt;/script&gt;",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f229-56d4-756b-8018-de83bedfc717",
-      "timestamp": "2025-04-01T16:22:30.357Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "&lt;script&gt;alert(&#39;bitch&#39;)&lt;/script&gt;",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f229-7f3f-75ac-9291-2433ddf3b1e9",
-      "timestamp": "2025-04-01T16:22:40.704Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "&lt;script&gt;alert(&#39;bitch&#39;)&lt;/script&gt;asd",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f229-e56a-73a9-9a23-a0aeb92ccbd1",
-      "timestamp": "2025-04-01T16:23:06.858Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "sa",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f229-e7c2-74cb-8b4a-870e00b1e519",
-      "timestamp": "2025-04-01T16:23:07.458Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f229-e898-707e-989f-50f8b8108156",
-      "timestamp": "2025-04-01T16:23:07.672Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f229-e950-741a-8bc8-07bd75efbc85",
-      "timestamp": "2025-04-01T16:23:07.856Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f229-ea01-743b-890f-93657c303535",
-      "timestamp": "2025-04-01T16:23:08.033Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f229-eaaa-77f7-a0e5-f6ae71f05091",
-      "timestamp": "2025-04-01T16:23:08.202Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f229-eb60-709f-875d-b91c6d87b150",
-      "timestamp": "2025-04-01T16:23:08.384Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f229-ec14-7332-af5f-12f45f2b0ced",
-      "timestamp": "2025-04-01T16:23:08.565Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "d",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f22a-959c-74f8-ba4d-7a980c2695c8",
-      "timestamp": "2025-04-01T16:23:51.964Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "dd",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f22a-9715-75ab-a8aa-47899b9248cc",
-      "timestamp": "2025-04-01T16:23:52.341Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "d",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f22a-97d3-7069-a51c-8a074e9ecac9",
-      "timestamp": "2025-04-01T16:23:52.531Z"
-   },
-   {
-      "roomId": "Main",
-      "message": "saasasasas",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f22c-0be8-76ba-9b0f-0932b5b3d06a",
-      "timestamp": "2025-04-01T16:25:27.785Z"
-   },
-   {
-      "roomId": "test231123",
-      "message": "hejh",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f248-743e-76a2-9adb-07bff199bc85",
-      "timestamp": "2025-04-01T16:56:29.503Z"
-   },
-   {
-      "roomId": "General",
-      "message": "Hej",
-      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
-      "username": "Sven",
-      "messageId": "0195f277-6325-761c-9eb4-f2e8b34a7c21",
-      "timestamp": "2025-04-01T17:47:45.317Z"
-   },
-   {
-      "roomId": "General",
-      "message": "fsdfs",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2ae-de23-7474-a73c-584c45f8b122",
-      "timestamp": "2025-04-01T18:48:21.283Z"
+      "messageId": "01961f2f-63c6-722f-b57f-c2748b1f3b6d",
+      "timestamp": "2025-04-10T10:12:01.609Z"
    },
    {
       "roomId": "anton hate group",
-      "message": "fuck anton asså, riktig jävel",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2b2-186b-71e4-b934-0d45a546521f",
-      "timestamp": "2025-04-01T18:51:52.811Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-1bfe-729e-94bd-cd24ab835bb0",
-      "timestamp": "2025-04-01T19:37:46.239Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-1c96-7158-8e95-8cf37d5c62af",
-      "timestamp": "2025-04-01T19:37:46.390Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-1d28-706e-b474-783cad915f9a",
-      "timestamp": "2025-04-01T19:37:46.537Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-1dc0-762a-87f2-212a5f01e91c",
-      "timestamp": "2025-04-01T19:37:46.689Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-1e5c-748a-97e8-c41d39075867",
-      "timestamp": "2025-04-01T19:37:46.845Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-1efd-714e-957b-02025903f67f",
-      "timestamp": "2025-04-01T19:37:47.006Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-1f96-77a4-80cf-9c3482f36718",
-      "timestamp": "2025-04-01T19:37:47.159Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-2029-70db-b85b-d6794cf257e8",
-      "timestamp": "2025-04-01T19:37:47.305Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-20c4-773a-864d-1b75ba74b495",
-      "timestamp": "2025-04-01T19:37:47.460Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-2161-70e1-9fe9-fa6e472195f6",
-      "timestamp": "2025-04-01T19:37:47.618Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-2207-7746-91f8-52ff95776dc1",
-      "timestamp": "2025-04-01T19:37:47.784Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-22af-725b-8992-ab281a1b775e",
-      "timestamp": "2025-04-01T19:37:47.952Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-2358-745a-8535-b73221a46713",
-      "timestamp": "2025-04-01T19:37:48.120Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-2404-7663-9092-c7c9829a2c8e",
-      "timestamp": "2025-04-01T19:37:48.292Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-24ac-71f0-91df-34b2c1e0c2a9",
-      "timestamp": "2025-04-01T19:37:48.460Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-2550-757a-9a52-40d0c93d64ec",
-      "timestamp": "2025-04-01T19:37:48.625Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-25f5-75bc-93f5-0e079d9eb919",
-      "timestamp": "2025-04-01T19:37:48.790Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-2696-71e8-bcb0-b9466eeb4b2b",
-      "timestamp": "2025-04-01T19:37:48.950Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-273d-76ca-a085-680927b61ef1",
-      "timestamp": "2025-04-01T19:37:49.117Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-27e0-742d-9577-d98a8d5ecf3c",
-      "timestamp": "2025-04-01T19:37:49.281Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "a",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-288b-773f-8cba-c3b65a078253",
-      "timestamp": "2025-04-01T19:37:49.452Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "asa",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-2996-76d9-afb1-b75f53cb3140",
-      "timestamp": "2025-04-01T19:37:49.719Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-2a33-7757-b55a-e6915bd7dcc3",
-      "timestamp": "2025-04-01T19:37:49.876Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "sa",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-2b4f-72cf-ba10-ed78c02e6802",
-      "timestamp": "2025-04-01T19:37:50.160Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "ss",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-2c0b-74a8-aa01-c4a702a367c6",
-      "timestamp": "2025-04-01T19:37:50.347Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-2cd7-763d-bdf8-69ceb94a4694",
-      "timestamp": "2025-04-01T19:37:50.551Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-2d82-7455-b15a-d8b6c7adb88f",
-      "timestamp": "2025-04-01T19:37:50.723Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-2e30-73a5-bf6c-005a2803edd3",
-      "timestamp": "2025-04-01T19:37:50.897Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-2eee-726a-965a-0ec015aa56d9",
-      "timestamp": "2025-04-01T19:37:51.087Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-301c-70fd-a733-b29003021a35",
-      "timestamp": "2025-04-01T19:37:51.389Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-30d5-7413-97da-f11108e6f93e",
-      "timestamp": "2025-04-01T19:37:51.574Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-31a9-764f-bb66-658c021a0300",
-      "timestamp": "2025-04-01T19:37:51.786Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-324d-73bf-82c7-71c363fae208",
-      "timestamp": "2025-04-01T19:37:51.949Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-330a-72dd-8a0d-e31ae659e769",
-      "timestamp": "2025-04-01T19:37:52.138Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-3551-70ea-83de-bbec66ada8bf",
-      "timestamp": "2025-04-01T19:37:52.721Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "s",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-3610-7278-8a61-e5ca68e96501",
-      "timestamp": "2025-04-01T19:37:52.912Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "ss",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
-      "username": "Ahlabo",
-      "messageId": "0195f2dc-3705-7512-a3ea-06cbb7044ce8",
-      "timestamp": "2025-04-01T19:37:53.157Z"
-   },
-   {
-      "roomId": "General",
-      "message": "1234",
-      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
-      "username": "Sven",
-      "messageId": "0195f72d-98a6-7499-b5b1-043685e05b59",
-      "timestamp": "2025-04-02T15:45:15.431Z"
-   },
-   {
-      "roomId": "General",
-      "message": "sasa",
-      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
-      "username": "Sven",
-      "messageId": "0195f72d-9d87-7628-9401-c47c2d3e8986",
-      "timestamp": "2025-04-02T15:45:16.679Z"
-   },
-   {
-      "roomId": "General",
-      "message": "asd",
-      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
-      "username": "Sven",
-      "messageId": "0195f72d-9f6e-708f-acb8-2490ddb3fbcd",
-      "timestamp": "2025-04-02T15:45:17.166Z"
-   },
-   {
-      "roomId": "General",
-      "message": "sa",
-      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
-      "username": "Sven",
-      "messageId": "0195f72d-a0cf-70bb-8bf1-5c934698dc1c",
-      "timestamp": "2025-04-02T15:45:17.519Z"
-   },
-   {
-      "roomId": "anton hate group",
-      "message": "asdsad",
-      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
-      "username": "Sven",
-      "messageId": "0195f738-aed6-75d4-8f86-453615ed116b",
-      "timestamp": "2025-04-02T15:57:22.006Z"
-   },
-   {
-      "roomId": "General",
       "message": "hej",
+      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801",
+      "username": "Ahlabo",
+      "messageId": "01962456-5f51-706c-a287-ec8d607edc1f",
+      "timestamp": "2025-04-11T10:12:42.452Z"
+   },
+   {
+      "roomId": "3",
+      "message": "hej",
+      "userId": "01961f3a-2c88-7398-887b-8f126919482f",
+      "username": "dsadsa",
+      "messageId": "01962456-745a-73db-ab04-603165e88367",
+      "timestamp": "2025-04-11T10:12:47.836Z"
+   },
+   {
+      "roomId": "General",
+      "message": "sw",
       "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76",
       "username": "Sven",
-      "messageId": "0195f7c4-7e23-747d-a302-3bf1638de726",
-      "timestamp": "2025-04-02T18:30:04.579Z",
-      "ip": "::1"
+      "messageId": "019625cc-d64e-701e-86bd-07cd7338295a",
+      "timestamp": "2025-04-11T17:01:43.374Z"
    }
 ]

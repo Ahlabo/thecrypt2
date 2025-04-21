@@ -1,6 +1,3 @@
-edit delete
-
-
 --Optional--
 
 displaya hur många som är inne i varje rum

@@ -16,5 +16,17 @@
       "email": "admin@admin.com",
       "password": "$2a$12$BSPT.Y0M6ohM2PZUo9uaIup2JD15IYdFabIekE3Edmm5SN5a7TNtS",
       "userId": "0195f276-4494-703c-a9a8-283f9808e0a6"
+   },
+   {
+      "username": "hackerman",
+      "email": "b@b.b",
+      "password": "$2a$12$1EokhZx9vkTH9nkiRSXJAee4qlunay3RWp2KJOOe.Tx8/w.xwF0WW",
+      "userId": "01960097-d278-73b4-a3a2-19e6143d4918"
+   },
+   {
+      "username": "dsadsa",
+      "email": "sebbe@gmail.com",
+      "password": "$2a$12$yTeYOXo59ToY5yA2bVEtfe9RDmWi1gCXAAf78ZAoGgvlIurvywStu",
+      "userId": "01961f3a-2c88-7398-887b-8f126919482f"
    }
 ]
