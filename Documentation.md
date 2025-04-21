@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 ```
 
-Servern tar sedan emot begäran och hämtar rummen i variablen rooms och skickar sedan ner den till servern.
+Servern tar sedan emot begäran och hämtar rummen i variablen rooms och skickar sedan ner den till klienten.
 ```js
 // server.js
 socket.on("get-rooms", () => {
@@ -55,7 +55,7 @@ function updateRoomList(rooms) {
 ```
 ### Create rooms
 
-För att skapa rum använder jag en Create funktion som tar in data ur ett formulär och för jämför det med några kriterier som att man måste vara inloggad, inte få göra fler än 3 och inte ha samma namn som tidigare rum. Om alla kriterer möts så läggs rummet bara till i rooms.json. Jag skickar emitterar sedan ett event ner till klienten som med hjälp av samma updateRoomList funtion visar upp det nya meddelandet.
+För att skapa rum använder jag en Create funktion som tar in data ur ett formulär och jämför det med några kriterier som att man måste vara inloggad, inte få göra fler än 3 och inte ha samma namn som tidigare rum. Om alla kriterer möts så läggs rummet bara till i rooms.json. Jag skickar emitterar sedan ett event ner till klienten som med hjälp av samma updateRoomList funtion visar upp det nya meddelandet.
 ```js
 // server.js
 async function createRoom(req, res) {
@@ -99,7 +99,7 @@ I min render funktion använder jag mig av data-attribut för att lagra både ru
 <script src="/client.js" defer data-room-id="${roomId}" data-user-id="${userId}"></script>
 ```
 
-När man går in på sidor så kollar denna funktionen om sidan man är inne på har ett rum id, vilket bara rummen har och då emittar det ett event till servern för att gå med i det rummet med sockets. 
+När man går in på sidor så kollar denna funktionen om sidan man är inne på har ett rum id, vilket bara rummen har och då emitterar det ett event till servern för att gå med i det rummet med sockets. 
 
 ```js
 // client.js
@@ -175,7 +175,7 @@ När jag laddar mina meddelanden så loopar jag ut varje meddelande och kollar o
 
 ### Skicka meddelanden
 
-Jag börjar mina meddelanden igenom att bara ta in meddelandet som användaren skrivit in på klienten och emittar meddelandet och vilket rum det skickades i.
+Jag börjar mina meddelanden igenom att bara ta in meddelandet som användaren skrivit in på klienten och emitterar meddelandet och vilket rum det skickades i.
 ```js
 // client.js
     form.addEventListener("submit", (e) => {
@@ -269,7 +269,7 @@ Funktionen `displayMessage` ansvarar för att visa ett inkommande meddelande i c
 ### Menu
 Som jag förklarade i den förra funktionen så läggs messageMenu till om meddelandet är ens egna, denna funktionen skapar en meny knapp som tillåter användaren att båda ta bort och redigera meddelanden. 
 
-Funktionen skapar en ikon som användaren kan klicka på för att få upp knapparna för att redigera. Det mesta i funktionen är stil mässigt men dem viktiga sakerna att fokusera på är eventlistenerna för deleteIcon och editIcon. Dem hämtar in data från meddelandet som dem klickades på och emittar till servern att något ska redigeras eller tas bort beroende på vilken ikon dem klickade på.
+Funktionen skapar en ikon som användaren kan klicka på för att få upp knapparna för att redigera. Det mesta i funktionen är stil mässigt men dem viktiga sakerna att fokusera på är eventlistenerna för deleteIcon och editIcon. Dem hämtar in data från meddelandet som dem klickades på och emitterar till servern att något ska redigeras eller tas bort beroende på vilken ikon dem klickade på.
 ```js
 // client.js
     function messageMenu(div, msg) {
