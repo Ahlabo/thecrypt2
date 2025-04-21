@@ -2,21 +2,11 @@
    {
       "Roomname": "General",
       "RoomPassword": "",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801"
+      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76"
    },
    {
-      "Roomname": "anton hate group",
-      "RoomPassword": "$2a$12$4G033oBBA.gkvf897OXGOeXkwlvomKyQbmB4vmadJTZ57hrAqQjHm",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801"
-   },
-   {
-      "Roomname": "test 1",
-      "RoomPassword": "",
-      "userId": "01961f3a-2c88-7398-887b-8f126919482f"
-   },
-   {
-      "Roomname": "test 2",
-      "RoomPassword": "$2a$12$XsByicPshB187wX/GdM4CuxPgpdaPF17G/rZro4IBU/Fg.CtyUKKS",
-      "userId": "0195ecb5-253b-77fd-93e6-83d98c3d4801"
+      "Roomname": "Password",
+      "RoomPassword": "$2a$12$q69eEu/z/s7vePTtFHYosOf0QaoEAo0qIGDW8M67eUKQcW0yt4idC",
+      "userId": "0195ed3b-9169-7501-b0d0-6f3536fb7e76"
    }
 ]
