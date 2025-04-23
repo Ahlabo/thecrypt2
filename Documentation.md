@@ -141,6 +141,93 @@ Jag har även laggt till ett litet meddelande som skrivs in i chatten bara för 
     });
 ```
 
+### Rum hanterare
+
+När man går in på en URL för ett rum så körs funktionen handleRooms. Den hämtar in information om rummet och kollar om rummet faktiskt existerar.
+
+Om rummet har ett lösenord renderas istället en enkel meny där användaren får skriva in lösenordet. Om inget lösenord finns renderas chatten direkt utan några extra steg.
+```js
+//server.js
+function handleRooms(req, res) {
+    try{
+
+
+        const roomId = escape(req.params.roomId);
+
+        let rooms = getJson("rooms");
+        let room = rooms.find(r => r.Roomname === roomId);
+
+        if (!room) {
+            return res.status(404).send("Room not found");
+        }
+
+        if (room.RoomPassword) {
+            let content = `
+                <div class="form-container">
+                    <h1>Enter Room Password</h1>
+                    <form action="/joinRoom/${roomId}" method="POST">
+                        <input type="password" name="RoomPassword" placeholder="Enter room password" required />
+                        <input type="submit" value="Join Room" />
+                    </form>
+                    <a href="/" class="back-button">Back to Main Page</a>
+                </div>
+                <script src="/client.js" defer></script>
+            `;
+            return res.send(render(content, req));
+        }
+
+        let content = showChat(roomId, req.session.userId);
+        res.send(render(content, req));
+
+    } catch (error){
+        console.error("Error handling rooms:", error.message);
+        return res.status(500).send("Internal server error");
+    }
+}
+```
+
+Den här funktionen körs när någon skickar en POST-förfrågan till ``/joinRoom/:roomId``, alltså när lösenordsformuläret skickas in. Att det är en POST är viktigt, det gör att ingen bara kan skriva in adressen direkt och hoppa över lösenordsrutan. Användaren måste gå via formuläret, och jag kan då validera lösenord och andra kriterier som krävs för att få tillgång till privata chattar.
+
+Funktionen kollar att rummet finns, att användaren är inloggad, att lösenord är ifyllt och att det är rätt. Är allt okej visas chatten, annars får användaren ett felmeddelande.
+
+I övrigt liknar funktionen den tidigare – den laddar in och renderar chatten om allt stämmer.
+
+```js
+async function passwordRoomhandler(req, res) {
+    try{
+
+        const roomId = escape(req.params.roomId);
+        const { RoomPassword } = req.body;
+
+        let rooms = getJson("rooms");
+        let room = rooms.find(r => r.Roomname === roomId);
+
+        if (!room) {
+            return res.status(404).send("Room not found");
+        }
+
+
+        if (room.RoomPassword) {
+            if (!RoomPassword || !req.session.auth) {
+                return res.status(401).send("You need to be logged in and provide a password to join this room");
+            }
+
+            const isPasswordCorrect = await bcrypt.compare(RoomPassword, room.RoomPassword);
+            if (!isPasswordCorrect) {
+                return res.status(401).send("Wrong password");
+            }
+        }
+
+        let content = showChat(roomId, req.session.userId);
+        res.send(render(content, req));
+        
+    } catch (error){
+        console.error("Error handling passworded room:", error.message);
+        return res.status(500).send("Internal server error");
+    }
+}
+```
+
 ## Meddelanden
 
 Hela mitt projekt använder en fil, client.js. För att urskilja när funktion ska användas kollar den om dem nedanstående sakerna finns på den nuvarande sidan, då fungerar funktionerna som står inom den. Detta är för att motverka att funktioner i andra delar av projektet råkas påverkas av chat funktionerna.
