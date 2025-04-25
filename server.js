@@ -14,6 +14,7 @@ const escape = require("escape-html");
 //server
 const { createServer } = require("http");
 const { Server } = require("socket.io");
+const { profile } = require("console");
 const server = createServer(app);
 const io = new Server(server);
 server.listen(8080);
@@ -46,11 +47,16 @@ app.post("/login", login);
 app.get("/createRoom", roomCreator);
 app.post("/createRoom", createRoom);
 app.post("/joinRoom/:roomId", passwordRoomhandler);
+app.get("/profile", profilePage);
 
 
 //page handlers
 app.get("/", (req, res) => {
-    return showMainPage(req, res);
+    let content = `
+    <div id="roomList" class="main-page"></div>
+    <script src="/client.js" defer></script>
+    `;
+ return res.send(render(content, req));
 });
 
 function handleSession(req, res) {
@@ -58,11 +64,86 @@ function handleSession(req, res) {
 }
 
 function registerPage(req, res) {
-    return showRegisterPage(req, res);
+    let content = `
+    <div class="form-container">
+        <h1>Register</h1>
+        <form action="/register" method="post">
+            <div class="input-group">
+                <i class="icon fas fa-user"></i>
+                <input type="text" name="username" placeholder="Username" required />
+            </div>
+            <div class="input-group">
+                <i class="icon fas fa-envelope"></i>
+                <input type="email" name="email" placeholder="Email" required />
+            </div>
+            <div class="input-group">
+                <i class="icon fas fa-lock"></i>
+                <input type="password" name="password" placeholder="Password" required />
+            </div>
+            <input type="submit" value="Register" />
+        </form>
+        <a href="/" class="back-button">Back to Main Page</a>
+    </div>
+      <script src="/client.js" defer></script>
+    `;
+    return res.send(render(content, req));
 }
 
 function loginPage(req, res) {
-    return showLoginPage(req, res);
+    let content = `
+    <div class="form-container">
+        <h1>Login</h1>
+        <form action="/login" method="post">
+            <div class="input-group">
+                <i class="icon fas fa-envelope"></i>
+                <input type="email" name="email" placeholder="Email" required />
+            </div>
+            <div class="input-group">
+                <i class="icon fas fa-lock"></i>
+                <input type="password" name="password" placeholder="Password" required />
+            </div>
+            <input type="submit" value="Login" />
+        </form>
+        <a href="/" class="back-button">Back to Main Page</a>
+    </div>
+      <script src="/client.js" defer></script>
+    `;
+    return res.send(render(content, req));
+}
+
+function profilePage(req, res) {
+    if (!req.session.auth) return res.redirect("/login");
+
+    let rooms = getJson("rooms");
+    let userRooms = rooms.filter(r => r.userId == req.session.userId);
+    console.log(userRooms);
+
+    let userRoomsHtml = userRooms.map(room => `
+        <div class="room-item">
+            <a href="/chat/${room.Roomname}">${room.Roomname}</a>
+            <button class="roomDelete" data-room-id="${room.Roomname}">Delete</button>
+        </div>
+    `).join("");
+   
+    let content = `
+    <div class="profile-container">
+        <h1>Profile</h1>
+        <p>Username: ${req.session.username}</p>
+        <p>Email: ${req.session.email}</p>
+    </div>
+    <div class="action-buttons">
+        <a href="/logout" class="logout-button">Logout</a>
+        <a href="/" class="back-button">Back to Main Page</a>
+    </div>
+    <div class="room-list-container">
+        <h2>Your Rooms</h2>
+        <div class="room-list" id="userRoomList">
+        ${userRoomsHtml}
+        </div>
+    </div>
+      <script src="/client.js" defer></script>
+    `;
+    return res.send(render(content, req));
 }
 
 
@@ -137,63 +218,19 @@ function handleConnection(socket) {
         fs.writeFileSync(__dirname + "/data/chatlog.json", JSON.stringify(chatlog, null, 3));
         io.emit("message-edited", { messageId, newMessage });
     });
-}
 
-// Handle page rendering
-function showMainPage(req, res) {
-    let content = `
-        <div id="roomList" class="main-page"></div>
-        <script src="/client.js" defer></script>
-        `;
-    res.send(render(content, req));
-}
+    socket.on("room-delete", ({ roomId }) => {
+        let rooms = getJson("rooms");
+        let chatlog = getJson("chatlog");
 
-function showRegisterPage(req, res) {
-    let content = `
-    <div class="form-container">
-        <h1>Register</h1>
-        <form action="/register" method="post">
-            <div class="input-group">
-                <i class="icon fas fa-user"></i>
-                <input type="text" name="username" placeholder="Username" required />
-            </div>
-            <div class="input-group">
-                <i class="icon fas fa-envelope"></i>
-                <input type="email" name="email" placeholder="Email" required />
-            </div>
-            <div class="input-group">
-                <i class="icon fas fa-lock"></i>
-                <input type="password" name="password" placeholder="Password" required />
-            </div>
-            <input type="submit" value="Register" />
-        </form>
-        <a href="/" class="back-button">Back to Main Page</a>
-    </div>
-      <script src="/client.js" defer></script>
-    `;
-    res.send(render(content, req));
-}
+        rooms = rooms.filter((room) => room.Roomname !== roomId);
+        chatlog = chatlog.filter((msg) => msg.roomId !== roomId);
 
-function showLoginPage(req, res) {
-    let content = `
-    <div class="form-container">
-        <h1>Login</h1>
-        <form action="/login" method="post">
-            <div class="input-group">
-                <i class="icon fas fa-envelope"></i>
-                <input type="email" name="email" placeholder="Email" required />
-            </div>
-            <div class="input-group">
-                <i class="icon fas fa-lock"></i>
-                <input type="password" name="password" placeholder="Password" required />
-            </div>
-            <input type="submit" value="Login" />
-        </form>
-        <a href="/" class="back-button">Back to Main Page</a>
-    </div>
-      <script src="/client.js" defer></script>
-    `;
-    res.send(render(content, req));
+        fs.writeFileSync(__dirname + "/data/rooms.json", JSON.stringify(rooms, null, 3));
+        fs.writeFileSync(__dirname + "/data/chatlog.json", JSON.stringify(chatlog, null, 3));
+
+        io.emit("room-deleted", rooms);
+    });
 }
 
 function roomCreator(req, res) {

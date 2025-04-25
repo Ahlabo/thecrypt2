@@ -54,6 +54,24 @@ function updateRoomList(rooms) {
     });
 }
 
+let roomdeleteButtons = document.querySelectorAll(".roomDelete");
+roomdeleteButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        const roomId = e.target.getAttribute("data-room-id");
+        clientSocket.emit("room-delete", { roomId });
+
+        const roomItem = e.target.closest(".room-item");
+        if (roomItem) {
+            roomItem.remove();
+        }
+    });
+});
+
+clientSocket.on("room-deleted", (rooms) => {
+    updateRoomList(rooms);
+    
+});
+
 //meddelanden
 if (messageInput && chatBox && form) {
     const roomScript = document.querySelector('script[data-room-id]');
