@@ -520,3 +520,86 @@ clientSocket.on("message-edited", ({ messageId, newMessage }) => {
 1. **Hitta meddelandet**: Klienten letar upp meddelandet i DOM baserat på `messageId`.
 2. **Uppdatera texten**: Meddelandets text ersätts med den nya texten.
 
+
+## Profil
+
+Efter behovet av att kunna ta bort rum så beslutade jag mig för att lägga till det och valde att skapa en profile page till det.
+
+
+Detta är funktionen som hanterar mina rum, som på många ställen vid det här laget så börjar jag med att hämta min json fil och filtrera fram rummen som är skapad av användare. dessa rummet loopas ut som en sträng in i variablen userRoomsHtml som sedan sätts in i content för att rederas, så den loopas innan den sätts in och sedan kommer hela den utskriva koden med alla rum in i userroomlist.
+```js
+//server.js
+function profilePage(req, res) {
+    if (!req.session.auth) return res.redirect("/login");
+
+    let rooms = getJson("rooms");
+    let userRooms = rooms.filter(r => r.userId == req.session.userId);
+    console.log(userRooms);
+
+    let userRoomsHtml = userRooms.map(room => `
+        <div class="room-item">
+            <a href="/chat/${room.Roomname}">${room.Roomname}</a>
+            <button class="roomDelete" data-room-id="${room.Roomname}">Delete</button>
+        </div>
+    `).join("");
+   
+    let content = `
+        <div class="action-buttons">
+        <a href="/" class="back-button">Back to Main Page</a>
+    </div>
+    <div class="profile-container">
+        <h1>Profile</h1>
+        <p>Username: ${req.session.username}</p>
+        <p>Email: ${req.session.email}</p>
+    </div>
+    <div class="room-list-container">
+        <h2>Your Rooms</h2>
+        <div class="room-list" id="userRoomList">
+        ${userRoomsHtml}
+        </div>
+    </div>
+      <script src="/client.js" defer></script>
+    `;
+    return res.send(render(content, req));
+}
+```
+
+På klienten skapas en eventlistener på varje delete knapp som finns som hämtar ut data-room-id för den eventet hände på och emitterar den upp till servern som kommer hantera det. Den tar sedan bort rummet visuellt från den som klickade så den inte ska behöva refresha.
+
+```js
+//client.js
+let roomdeleteButtons = document.querySelectorAll(".roomDelete");
+roomdeleteButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        const roomId = e.target.getAttribute("data-room-id");
+        clientSocket.emit("room-delete", { roomId });
+
+        const roomItem = e.target.closest(".room-item");
+        if (roomItem) {
+            roomItem.remove();
+        }
+    });
+});
+```
+
+Room delete är bara samma gamla vanliga vid det här laget, det enda som sticker ut lita är att vi gör allt två gånger då jag även filtrerar ut meddelanden från det rummet i chatloggen så även dem försvinner.
+```js
+    socket.on("room-delete", ({ roomId }) => {
+        let rooms = getJson("rooms");
+        let chatlog = getJson("chatlog");
+
+        rooms = rooms.filter((room) => room.Roomname !== roomId);
+        chatlog = chatlog.filter((msg) => msg.roomId !== roomId);
+
+        fs.writeFileSync(__dirname + "/data/rooms.json", JSON.stringify(rooms, null, 3));
+        fs.writeFileSync(__dirname + "/data/chatlog.json", JSON.stringify(chatlog, null, 3));
+
+        io.emit("room-deleted", rooms);
+    });
+```
+
+room-deleted använder bara exakt samma updateroomlist funktionen som jag har gått igenom tidigare för att uppdatera listan för alla användare.
+
+## slutgiltiga tankar
+
+Projekter har varit väldigt lärorikt och framöver tror jag websockets kommer vara en stor del i varje projekt jag gör för hur väl man kan integrera det, att smidigt kunna påverka klienten från event från servern och vice versa är något som jag inte vill bli av med. Generellt sätt har det varit mycket av det samma för alla meddelanden och koden själv efter dem första funktionerna har varit rätt lätt. tack o hej för mig

@@ -15,7 +15,7 @@
     --text-hover: #ffffff;
   
     --accent-primary: #1db954;
-    --accent-hover: #ffffff;
+    --accent-hover: #218838;
     --accent-secondary: #3b4a6b;
     --accent-secondary-hover: #4a5a7c;
   
@@ -329,7 +329,7 @@
   }
   
   #headerTitle:hover {
-    color: var(--accent-hover);
+    color: white;
   }
   
   .header-links {
@@ -631,5 +631,119 @@
     color: gray;
     font-size: 0.9rem;
   }
-  
-  
+
+  /* Profile Page Container */
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: var(--background-container);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px var(--shadow-color);
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.profile-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--accent-primary);
+}
+
+.profile-container p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.action-buttons a {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-hover);
+    background-color: var(--accent-primary);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.action-buttons a:hover {
+    background-color: var(--accent-hover);
+    color: var(--text-hover);
+}
+
+/* Room List Container */
+.room-list-container {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--background-container);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.room-list-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--accent-primary);
+}
+
+.room-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Room Items */
+.room-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--background-hover);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.room-item:hover {
+    background-color: var(--accent-primary);
+    transform: scale(1.02);
+}
+
+.room-item a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.room-item a:hover {
+    color: var(--text-hover);
+}
+
+/* Delete Button */
+.room-item .roomDelete {
+    padding: 8px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white; /* Text color */
+    background-color: #28a745; /* Green background */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.room-item .roomDelete:hover {
+    background-color: #218838; /* Dark green background on hover */
+    color: white; /* Ensure text remains readable */
+}
+

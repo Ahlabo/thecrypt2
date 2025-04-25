@@ -126,14 +126,13 @@ function profilePage(req, res) {
     `).join("");
    
     let content = `
+        <div class="action-buttons">
+        <a href="/" class="back-button">Back to Main Page</a>
+    </div>
     <div class="profile-container">
         <h1>Profile</h1>
         <p>Username: ${req.session.username}</p>
         <p>Email: ${req.session.email}</p>
-    </div>
-    <div class="action-buttons">
-        <a href="/logout" class="logout-button">Logout</a>
-        <a href="/" class="back-button">Back to Main Page</a>
     </div>
     <div class="room-list-container">
         <h2>Your Rooms</h2>
