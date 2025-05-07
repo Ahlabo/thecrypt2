@@ -177,6 +177,15 @@ function handleConnection(socket) {
             socket.emit("error-message", "You must be logged in to send messages.");
             return;
         }
+
+        const rooms = getJson("rooms");
+        const room = rooms.find(room => room.Roomname === roomId);
+        if (!room) {
+            console.log("Message attempt to non-existent room:", roomId);
+            socket.emit("error-message", "The room does not exist.");
+            return;
+            }
+
         const messageId = uuidv7();
         const username = socket.request.session.username;
         const userId = socket.request.session.userId;
@@ -184,7 +193,7 @@ function handleConnection(socket) {
         message = escape(message);
 
         let chatlog = getJson("chatlog");
-        const newMessage = { roomId, message, userId, username,messageId, timestamp: new Date()};
+        const newMessage = { roomId, message, userId, username, messageId, timestamp: new Date() };
         chatlog.push(newMessage);
         fs.writeFileSync(__dirname + "/data/chatlog.json", JSON.stringify(chatlog, null, 3));
 

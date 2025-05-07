@@ -72,6 +72,8 @@ clientSocket.on("room-deleted", (rooms) => {
     
 });
 
+
+
 //meddelanden
 if (messageInput && chatBox && form) {
     const roomScript = document.querySelector('script[data-room-id]');
