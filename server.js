@@ -221,8 +221,11 @@ function handleConnection(socket) {
             io.emit("error-message", "You are not the sender of this message");
             return;
         }
-
+        
+        newMessage = escape(newMessage);
         SelectedMessage.message = newMessage;
+
+        
         fs.writeFileSync(__dirname + "/data/chatlog.json", JSON.stringify(chatlog, null, 3));
         io.emit("message-edited", { messageId, newMessage });
     });
